@@ -1,26 +1,33 @@
-# link to the Bike class
-require './lib/bike'
+require 'bike.rb'
 
-# we're describing the functionality of a specific class, Bike
-describe Bike do
+  describe Bike do
 
-  let(:bike) { Bike.new }
+    let(:broken_bike) { Bike.new }
 
-  # this is a specific feature (behaviour) that we expect to be present
-  it "should not be broken after we create it" do    
-    # expect an instance of this class to have a method "broken?" that should return false
-    expect(bike).not_to be_broken
+    before(:each) do
+      broken_bike.break!
+    end
+
+
+    it 'is not broken when created' do
+      new_bike = Bike.new
+      expect(new_bike).not_to be_broken
+      expect(new_bike.broken?).to be false
   end
 
-  it "should be able to break" do    
-    bike.break
-    expect(bike).to be_broken
+  it 'can break' do
+    broken_bike = Bike.new
   end
 
-  it "should be able to get fixed" do    
-    bike.break
-    bike.fix
-    expect(bike).not_to be_broken
+  it 'can be fixed' do
+    broken_bike = Bike.new
+    broken_bike.break!
+    broken_bike.fix!
+    expect(broken_bike).not_to be_broken
   end
 
 end
+
+#can break
+#can be fixed
+#can be ridden
