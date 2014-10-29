@@ -14,7 +14,7 @@ describe Person do
   end
 
   it 'returns the bike' do
-    
+
   end
 
 end
