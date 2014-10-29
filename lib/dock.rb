@@ -12,4 +12,8 @@ class Docking_station
     @bikes << bike
   end
 
+  def release (bike)
+    @bikes.delete(bike)
+  end
+
 end
